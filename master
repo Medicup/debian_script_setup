@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 import os
 
-scripts = ['https://github.com/Medicup/debian_script_setup.git',
-  'https://github.com/Medicup/addonInstall.git',
-  'https://github.com/Medicup/ubuntu_init_setup.git']
+scripts = ['https://github.com/Medicup/ipv6_disable_debian.git',
+  'https://github.com/Medicup/ubuntu_init_setup.git',
+  'https://github.com/Medicup/fetch_update.py.git']
 
 def get_scripts():
   for script in scripts:
