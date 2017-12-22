@@ -1,5 +1,12 @@
-<php
+#!/usr/bin/python3
+import os
 
-phpinfo();
+scripts = ['https://github.com/Medicup/debian_script_setup.git',
+  'https://github.com/Medicup/addonInstall.git',
+  'https://github.com/Medicup/ubuntu_init_setup.git']
 
-?>
+def get_scripts():
+  for script in scripts:
+    os.system("git clone %s" % (script))
+
+get_scripts()
