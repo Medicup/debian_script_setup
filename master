@@ -9,7 +9,8 @@ cwd = os.getcwd()
 scripts = ['https://raw.githubusercontent.com/Medicup/fetch_update.py/master/update.py',
   'https://raw.githubusercontent.com/Medicup/ipv6_disable_debian/master/disable_ipv6.py',
   'https://raw.githubusercontent.com/Medicup/ubuntu_init_setup/master/initSetup.py',
-  'https://raw.githubusercontent.com/Medicup/wpsiteCreate.py/master/wpsiteCreate.py']
+  'https://raw.githubusercontent.com/Medicup/wpsiteCreate.py/master/wpsiteCreate.py',
+  'https://raw.githubusercontent.com/Medicup/setIp.py/master/setIp.py']
 
 def mypython_setup():
   if os.path.isdir('./myPython.d'):
