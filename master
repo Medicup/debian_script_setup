@@ -1,12 +1,26 @@
 #!/usr/bin/python3
+# Author Stephen Kennedy
+
 import os
 
-scripts = ['https://github.com/Medicup/ipv6_disable_debian.git',
-  'https://github.com/Medicup/ubuntu_init_setup.git',
-  'https://github.com/Medicup/fetch_update.py.git']
+myPython = "myPython.d"
+cwd = os.getcwd()
+
+scripts = ['https://raw.githubusercontent.com/Medicup/fetch_update.py/master/update.py',
+  'https://raw.githubusercontent.com/Medicup/ipv6_disable_debian/master/disable_ipv6.py',
+  'https://raw.githubusercontent.com/Medicup/ubuntu_init_setup/master/initSetup.py']
+
+def mypython_setup():
+  if os.path.isdir('./myPython.d'):
+    return
+  else:
+    os.system('mkdir %s ' % (myPython))
 
 def get_scripts():
   for script in scripts:
-    os.system("git clone %s" % (script))
+    os.system("curl -O %s " % (script))
+  os.system('chmod 775 *.py')
+  os.system("mv *.py %s/%s" % (cwd, myPython))
 
+mypython_setup()
 get_scripts()
