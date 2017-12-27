@@ -22,8 +22,11 @@ def mypython_setup():
 def get_scripts():
   for script in scripts:
     os.system("curl -O %s " % (script))
-  os.system('chmod 755 *.py')
-  os.system("mv *.py %s/%s" % (path_head, myPython))
+    url_array = script.rsplit("/")
+    file_position = (len(url_array)-1)
+    file_name = (url_array[file_position])
+    os.system('chmod 755 %s' % (file_name))
+    os.system("mv %s %s/%s" % (file_name, path_head, myPython))
 
 mypython_setup()
 get_scripts()
