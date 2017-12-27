@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 # Author Stephen Kennedy
 import os
-import getpass
 
 myPython = "myPython.d"
 user_path = os.getenv("HOME")
