@@ -1,11 +1,14 @@
 #!/usr/bin/python3
 # Author Stephen Kennedy
-
 import os
+import getpass
 
 myPython = "myPython.d"
-cwd = os.getcwd()
-path_head, path_tail = os.path.split(cwd)
+user_path = os.getenv("HOME")
+final_path = ("%s/%s" % (user_path, myPython))
+
+#cwd = os.getcwd()
+#path_head, path_tail = os.path.split(cwd)
 
 scripts = ['https://raw.githubusercontent.com/Medicup/fetch_update.py/master/update.py',
   'https://raw.githubusercontent.com/Medicup/ipv6_disable_debian/master/disable_ipv6.py',
@@ -14,10 +17,10 @@ scripts = ['https://raw.githubusercontent.com/Medicup/fetch_update.py/master/upd
   'https://raw.githubusercontent.com/Medicup/setIp.py/master/setIp.py']
 
 def mypython_setup():
-  if os.path.isdir('%s/%s' % (path_head, myPython)):
+  if os.path.isdir('%s' % (final_path)):
     return
   else:
-    os.system('mkdir %s/%s ' % (path_head, myPython))
+    os.system('mkdir %s ' % (final_path))
 
 def get_scripts():
   for script in scripts:
@@ -26,7 +29,7 @@ def get_scripts():
     file_position = (len(url_array)-1)
     file_name = (url_array[file_position])
     os.system('chmod 755 %s' % (file_name))
-    os.system("mv %s %s/%s" % (file_name, path_head, myPython))
+    os.system("mv %s %s" % (file_name, final_path))
 
 mypython_setup()
 get_scripts()
