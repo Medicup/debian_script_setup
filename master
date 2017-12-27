@@ -5,6 +5,7 @@ import os
 
 myPython = "myPython.d"
 cwd = os.getcwd()
+path_head, path_tail = os.path.split(cwd)
 
 scripts = ['https://raw.githubusercontent.com/Medicup/fetch_update.py/master/update.py',
   'https://raw.githubusercontent.com/Medicup/ipv6_disable_debian/master/disable_ipv6.py',
@@ -13,16 +14,16 @@ scripts = ['https://raw.githubusercontent.com/Medicup/fetch_update.py/master/upd
   'https://raw.githubusercontent.com/Medicup/setIp.py/master/setIp.py']
 
 def mypython_setup():
-  if os.path.isdir('./myPython.d'):
+  if os.path.isdir('%s/%s' % (path_head, myPython):
     return
   else:
-    os.system('mkdir %s ' % (myPython))
+    os.system('mkdir %s/%s ' % (path_head, myPython))
 
 def get_scripts():
   for script in scripts:
     os.system("curl -O %s " % (script))
   os.system('chmod 755 *.py')
-  os.system("mv *.py %s/%s" % (cwd, myPython))
+  os.system("mv *.py %s/%s" % (path_head, myPython))
 
 mypython_setup()
 get_scripts()
