@@ -14,7 +14,7 @@ scripts = ['https://raw.githubusercontent.com/Medicup/fetch_update.py/master/upd
   'https://raw.githubusercontent.com/Medicup/setIp.py/master/setIp.py'
 
 def mypython_setup():
-  if os.path.isdir('%s/%s' % (path_head, myPython))
+  if os.path.isdir('%s/%s' % (path_head, myPython)):
     return
   else:
     os.system('mkdir %s/%s ' % (path_head, myPython))
