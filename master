@@ -7,9 +7,6 @@ myPython = "myPython.d"
 user_path = os.getenv("HOME")
 final_path = ("%s/%s" % (user_path, myPython))
 
-#cwd = os.getcwd()
-#path_head, path_tail = os.path.split(cwd)
-
 scripts = ['https://raw.githubusercontent.com/Medicup/fetch_update.py/master/update.py',
   'https://raw.githubusercontent.com/Medicup/ipv6_disable_debian/master/disable_ipv6.py',
   'https://raw.githubusercontent.com/Medicup/ubuntu_init_setup/master/initSetup.py',
@@ -24,10 +21,17 @@ def mypython_setup():
 
 def get_scripts():
   for script in scripts:
+    # get individual script from Github
     os.system("curl -O %s " % (script))
+    
+    # split the url by "/" to aid in identifying file name
     url_array = script.rsplit("/")
+    
+    # count the objects in the array and subtract 1 to get the file name
     file_position = (len(url_array)-1)
     file_name = (url_array[file_position])
+    
+    # change file permission to make executable and move to the myPython.d
     os.system('chmod 755 %s' % (file_name))
     os.system("mv %s %s" % (file_name, final_path))
 
