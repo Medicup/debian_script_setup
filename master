@@ -5,6 +5,7 @@ import os
 myPython = "myPython.d"
 user_path = os.getenv("HOME")
 final_path = ("%s/%s" % (user_path, myPython))
+reset = "reset_master.py"
 
 scripts = ['https://raw.githubusercontent.com/Medicup/fetch_update.py/master/update.py',
   'https://raw.githubusercontent.com/Medicup/ipv6_disable_debian/master/disable_ipv6.py',
@@ -27,6 +28,7 @@ def get_scripts():
     # count the objects in the array and subtract 1 to get the file name
     file_position = (len(url_array)-1)
     file_name = (url_array[file_position])
+    file_name.append(reset)
     
     # change file permission to make executable and move to the myPython.d
     os.system('chmod 755 %s' % (file_name))
