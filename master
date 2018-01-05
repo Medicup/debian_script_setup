@@ -13,6 +13,10 @@ scripts = ['https://raw.githubusercontent.com/Medicup/fetch_update.py/master/upd
   'https://raw.githubusercontent.com/Medicup/wpsiteCreate.py/master/wpsiteCreate.py',
   'https://raw.githubusercontent.com/Medicup/setIp.py/master/setIp.py']
 
+
+# ensure reset_master.py remains executable
+os.system('chmod 755 %s' % (reset))
+
 def mypython_setup():
   if not os.path.isdir('%s' % (final_path)):
     os.system('mkdir %s ' % (final_path))
@@ -28,7 +32,6 @@ def get_scripts():
     # count the objects in the array and subtract 1 to get the file name
     file_position = (len(url_array)-1)
     file_name = (url_array[file_position])
-    file_name.append(reset)
     
     # change file permission to make executable and move to the myPython.d
     os.system('chmod 755 %s' % (file_name))
