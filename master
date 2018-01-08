@@ -5,6 +5,7 @@ import os
 myPython = "myPython.d"
 user_path = os.getenv("HOME")
 final_path = ("%s/%s" % (user_path, myPython))
+vim_path = ('.vimrc')
 reset = "reset_master.py"
 setup = ("update.py", "initSetup.py")
 
@@ -25,7 +26,7 @@ def update_default():
   # update packages
   for file in setup:
     os.system('%s/%s' % (final_path, file))
-    
+
 def get_scripts():
   for script in scripts:
     # get individual script from Github
@@ -42,6 +43,23 @@ def get_scripts():
     os.system('chmod 755 %s' % (file_name))
     os.system("mv %s %s" % (file_name, final_path))
 
+def vim_config():
+  # create .vimrc file for customization
+  vimrc = ('%s/%s' % (user_path, vim_path))
+  f = open(vimrc, 'w')
+  f.write('filetype plugin indent on \n')
+  f.write('set tabstop=2 \n')
+  f.write('set shiftwidth=2 \n')
+  f.write('set softtabstop=2 \n')
+  f.write('set expandtab \n')
+  f.write('syntax on \n')
+  f.write('set ai \n')
+  f.write('set autoindent \n')
+  f.write('set smartindent \n')
+  f.write('inoremap { {<CR><CR>}<C-o>k<C-o>S \n')
+  f.close()
+
 mypython_setup()
 update_default()
 get_scripts()
+vim_config()
