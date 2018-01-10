@@ -47,18 +47,42 @@ def vim_config():
   # create .vimrc file for customization
   vimrc = ('%s/%s' % (user_path, vim_path))
   f = open(vimrc, 'w')
-  f.write('filetype plugin indent on \n')
-  f.write('set tabstop=2 \n')
-  f.write('set shiftwidth=2 \n')
-  f.write('set softtabstop=2 \n')
-  f.write('set expandtab \n')
-  f.write('syntax on \n')
-  f.write('set ai \n')
-  f.write('set autoindent \n')
-  f.write('set smartindent \n')
-  f.write('inoremap { {<CR><CR>}<C-o>k<C-o>S \n')
-  f.close()
+  
+  f.write('" enable syntax highlighting \n ')
+  f.write('"syntax enable \n ')
 
+  f.write('" show line numbers \n ')
+  f.write('set number \n ')
+
+  f.write('" set tabs to have 4 spaces \n ')
+  f.write('set ts=2 \n ')
+
+  f.write('" indent when moving to the next line while writing code \n ')
+  f.write('set autoindent \n ')
+
+  f.write('" expand tabs into spaces \n ')
+  f.write('set expandtab \n ')
+
+  f.write('" when using the >> or << commands, shift lines by 4 spaces \n ')
+  f.write('set shiftwidth=2 \n ')
+
+  f.write('" show a visual line under the cursor current line \n ')
+  f.write('set cursorline \n ')
+
+  f.write('" show the matching part of the pair for [] { \n ')
+  f.write('" } and () \n ')
+  f.write('set showmatch \n ')
+
+  f.write('" enable all Python syntax hiGghlighting features \n ')
+  f.write('let python_highlight_all = 1 \n ')
+
+  f.write('"filetype plugin indent on  \n ')
+  f.write('"set softtabstop=2  \n ')
+  f.write('"set ai  \n ')
+  f.write('set autoindent  \n ')
+  f.write('"set smartindent \n ')
+  f.write('inoremap { {<CR><CR>}<C-o>k<C-o>S  \n ')
+ 
 os.system('chmod 755 %s' % (reset))
 
 mypython_setup()
