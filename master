@@ -9,8 +9,7 @@ vim_path = ('.vimrc')
 reset = "reset_master.py"
 setup = ("update.py", "initSetup.py")
 
-scripts = ['https://raw.githubusercontent.com/Medicup/ubuntu_init_setup/master/initSetup.py',
-  'https://raw.githubusercontent.com/Medicup/fetch_update.py/master/update.py',
+scripts = ['https://raw.githubusercontent.com/Medicup/fetch_update.py/master/update.py',
   'https://raw.githubusercontent.com/Medicup/ipv6_disable_debian/master/disable_ipv6.py',
   'https://raw.githubusercontent.com/Medicup/wpsiteCreate.py/master/wpsiteCreate.py',
   'https://raw.githubusercontent.com/Medicup/setIp.py/master/setIp.py',
