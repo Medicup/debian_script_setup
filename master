@@ -13,7 +13,8 @@ scripts = ['https://raw.githubusercontent.com/Medicup/ubuntu_init_setup/master/i
   'https://raw.githubusercontent.com/Medicup/fetch_update.py/master/update.py',
   'https://raw.githubusercontent.com/Medicup/ipv6_disable_debian/master/disable_ipv6.py',
   'https://raw.githubusercontent.com/Medicup/wpsiteCreate.py/master/wpsiteCreate.py',
-  'https://raw.githubusercontent.com/Medicup/setIp.py/master/setIp.py']
+  'https://raw.githubusercontent.com/Medicup/setIp.py/master/setIp.py',
+  'https://raw.githubusercontent.com/Medicup/fabfile.py/master/fabfile.py']
 
 # ensure reset_master.py remains executable
 os.system('chmod 755 %s' % (reset))
@@ -21,11 +22,6 @@ os.system('chmod 755 %s' % (reset))
 def mypython_setup():
   if not os.path.isdir('%s' % (final_path)):
     os.system('mkdir %s ' % (final_path))
-
-def update_default():
-  # update packages
-  for file in setup:
-    os.system('%s/%s' % (final_path, file))
 
 def get_scripts():
   for script in scripts:
@@ -43,6 +39,11 @@ def get_scripts():
     os.system('chmod 755 %s' % (file_name))
     os.system("mv %s %s" % (file_name, final_path))
 
+def update_default():
+  # update packages
+  for file in setup:
+    os.system('%s/%s' % (final_path, file))
+    
 def vim_config():
   # create .vimrc file for customization
   vimrc = ('%s/%s' % (user_path, vim_path))
@@ -86,6 +87,6 @@ def vim_config():
 os.system('chmod 755 %s' % (reset))
 
 mypython_setup()
-update_default()
 get_scripts()
 vim_config()
+update_default()
