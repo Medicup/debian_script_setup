@@ -3,7 +3,8 @@
 import os
 
 user_path = os.getenv("HOME")
-final_path = ("%s/%s" % (user_path, myPython))
+reset = "reset_master.py"
+final_path = ("%s/%s" % (user_path, reset))
 
 os.system("git fetch origin")
 os.system("git reset --hard origin/master")
